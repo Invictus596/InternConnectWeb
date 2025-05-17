@@ -117,62 +117,106 @@
         margin: 0 2px;
       }
       @media (max-width: 900px) {
-        section#about {
-          max-width: 98vw;
-          padding: 18px 4vw 16px 4vw;
+        .side-menu {
+          left: 0;
+          transform: translateX(-100%);
+          width: 80vw;
+          max-width: 320px;
+          min-width: 170px;
+          box-shadow: 2px 0 12px rgba(0,0,0,0.18);
+          z-index: 2000;
+          transition: transform 0.4s cubic-bezier(.77,0,.18,1);
         }
-        .card, .card1, .card2, .card3 {
-          max-width: 95vw;
-          padding: 18px 4vw 16px 4vw;
+        .side-menu.open {
+          transform: translateX(0);
+        }
+        .main-content-wrapper {
+          margin-left: 0 !important;
+        }
+        .mobile-overlay {
+          display: none;
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100vw;
+          height: 100vh;
+          background: rgba(0,0,0,0.18);
+          z-index: 1500;
+        }
+        .side-menu.open ~ .mobile-overlay {
+          display: block;
         }
       }
       @media (max-width: 600px) {
-        .container {
+        .side-menu {
+          width: 90vw;
+          min-width: 0;
+          max-width: 320px;
+        }
+        .side-menu-toggle {
+          top: 10px;
+          left: 10px;
+          width: 38px;
+          height: 38px;
+          font-size: 1.2rem;
+        }
+        .main-content-wrapper {
+          margin-left: 0 !important;
+          padding: 0;
+        }
+        .main-container {
           max-width: 100vw;
           padding: 8px 2vw 10px 2vw;
-        }
-        .card {
-          padding: 16px 8px 14px 8px;
-          font-size: 0.97rem;
-        }
-        .card h2 {
-          font-size: 1.1rem;
-        }
-        .card p {
-          font-size: 0.98rem;
-        }
-        .dashboard-btn, .action-btn {
-          font-size: 0.98rem;
-          padding: 10px 0;
-          gap: 6px;
-        }
-        .navbar {
-          flex-direction: column;
-          align-items: flex-start;
-          padding: 8px 8px;
-        }
-        .nav-title {
-          font-size: 1.1rem;
-        }
-        .nav-links {
-          flex-direction: column;
-          width: 100%;
-          padding: 8px 0;
-          gap: 4px;
-        }
-        .nav-links li {
-          width: 100%;
-          text-align: center;
+          margin-top: 12px;
         }
         header {
-          padding: 14px 4px 10px 4px;
-        }
-        .subtitle {
+          padding: 12px 2vw 10px 2vw !important;
+          margin: 0 2vw 14px 0 !important;
           font-size: 1rem;
         }
-        input, select, textarea {
-          font-size: 1rem;
-          padding: 8px 6px;
+        .container {
+          padding: 0 2vw;
+        }
+        .mnc-section {
+          padding: 12px 4px 8px 4px;
+        }
+        .mnc-logo {
+          width: 90px;
+          padding: 6px 2px;
+        }
+        .mnc-logo img {
+          width: 28px;
+          height: 28px;
+        }
+        .button {
+          font-size: 0.98rem;
+          padding: 8px 0;
+        }
+        footer {
+          padding: 10px 0;
+          font-size: 0.9rem;
+        }
+        /* Overlay effect for side menu on mobile */
+        .side-menu {
+          position: fixed;
+          height: 100vh;
+          z-index: 2000;
+          box-shadow: 2px 0 12px rgba(0,0,0,0.18);
+          background: #004080;
+          transition: transform 0.4s cubic-bezier(.77,0,.18,1);
+        }
+        .side-menu.open ~ .mobile-overlay {
+          display: block;
+        }
+        .mobile-overlay {
+          display: none;
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100vw;
+          height: 100vh;
+          background: rgba(0,0,0,0.18);
+          z-index: 1500;
         }
       }
       footer {
@@ -340,32 +384,40 @@
       }
       @media (max-width: 900px) {
         .side-menu {
-          width: 170px;
-          padding-top: 18px;
+          left: 0;
+          transform: translateX(-100%);
+          width: 80vw;
+          max-width: 320px;
+          min-width: 170px;
+          box-shadow: 2px 0 12px rgba(0,0,0,0.18);
+          z-index: 2000;
+          transition: transform 0.4s cubic-bezier(.77,0,.18,1);
         }
-        .side-menu .side-title {
-          font-size: 1.1rem;
-          margin-left: 18px;
-          margin-bottom: 18px;
+        .side-menu.open {
+          transform: translateX(0);
         }
-        .side-links a {
-          font-size: 0.98rem;
-          padding: 10px 18px;
+        .main-content-wrapper {
+          margin-left: 0 !important;
+        }
+        .mobile-overlay {
+          display: none;
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100vw;
+          height: 100vh;
+          background: rgba(0,0,0,0.18);
+          z-index: 1500;
+        }
+        .side-menu.open ~ .mobile-overlay {
+          display: block;
         }
       }
       @media (max-width: 600px) {
         .side-menu {
-          width: 100vw;
-          padding-top: 12px;
-          box-shadow: none;
-        }
-        .side-menu .side-title {
-          margin-left: 12px;
-          margin-bottom: 12px;
-        }
-        .side-links a {
-          font-size: 1rem;
-          padding: 10px 12px;
+          width: 90vw;
+          min-width: 0;
+          max-width: 320px;
         }
         .side-menu-toggle {
           top: 10px;
@@ -374,70 +426,361 @@
           height: 38px;
           font-size: 1.2rem;
         }
+        .main-content-wrapper {
+          margin-left: 0 !important;
+          padding: 0;
+        }
+        .main-container {
+          max-width: 100vw;
+          padding: 8px 2vw 10px 2vw;
+          margin-top: 12px;
+        }
+        header {
+          padding: 12px 2vw 10px 2vw !important;
+          margin: 0 2vw 14px 0 !important;
+          font-size: 1rem;
+        }
+        .container {
+          padding: 0 2vw;
+        }
+        .mnc-section {
+          padding: 12px 4px 8px 4px;
+        }
+        .mnc-logo {
+          width: 90px;
+          padding: 6px 2px;
+        }
+        .mnc-logo img {
+          width: 28px;
+          height: 28px;
+        }
+        .button {
+          font-size: 0.98rem;
+          padding: 8px 0;
+        }
+        footer {
+          padding: 10px 0;
+          font-size: 0.9rem;
+        }
+        /* Overlay effect for side menu on mobile */
+        .side-menu {
+          position: fixed;
+          height: 100vh;
+          z-index: 2000;
+          box-shadow: 2px 0 12px rgba(0,0,0,0.18);
+          background: #004080;
+          transition: transform 0.4s cubic-bezier(.77,0,.18,1);
+        }
+        .side-menu.open ~ .mobile-overlay {
+          display: block;
+        }
+        .mobile-overlay {
+          display: none;
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100vw;
+          height: 100vh;
+          background: rgba(0,0,0,0.18);
+          z-index: 1500;
+        }
       }
-      .side-menu-fade {
-        animation: fadeInMenu 0.5s cubic-bezier(.77,0,.18,1);
+      footer {
+        margin-top: auto;
+        background: #f1f5fa;
+        color: #888;
+        text-align: center;
+        padding: 18px 0 10px 0;
+        font-size: 0.98rem;
+        letter-spacing: 0.01em;
       }
-      @keyframes fadeInMenu {
-        from { opacity: 0; transform: translateX(-60px); }
-        to { opacity: 1; transform: translateX(0); }
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: #004080;
+        padding: 10px 20px;
+        color: white;
+      }
+      .nav-left {
+        display: flex;
+        align-items: center;
+      }
+      .nav-title {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-right: 20px;
+      }
+      .nav-links {
+        display: flex;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        gap: 15px;
+      }
+      .nav-links li {
+        position: relative;
+      }
+      .nav-links a {
+        color: white;
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s;
+      }
+      .nav-links a:hover {
+        color: #cce7ff;
+      }
+      .nav-icon {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        margin-right: 8px;
+        font-size: 1.2rem;
+        line-height: 20px;
+        text-align: center;
+      }
+      header {
+        text-align: center;
+        padding: 40px 20px;
+        background: #004080;
+        color: white;
+        position: relative;
+      }
+      header h1 {
+        font-size: 2.5rem;
+        margin: 0;
+        font-weight: 700;
+      }
+      .subtitle {
+        font-size: 1.2rem;
+        margin-top: 10px;
+        font-weight: 400;
+        color: #e0e0e0;
+      }
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+        flex: 1;
+      }
+      /* Side menu styles */
+      .side-menu {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 220px;
+        background: #004080;
+        color: #fff;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 32px 0 0 0;
+        box-shadow: 2px 0 12px rgba(0,0,0,0.08);
+        z-index: 1100;
+        transform: translateX(-240px);
+        transition: transform 0.4s cubic-bezier(.77,0,.18,1);
+      }
+      .side-menu.open {
+        transform: translateX(0);
+      }
+      .side-menu .side-title {
+        font-size: 1.4rem;
+        font-weight: 600;
+        margin: 0 0 32px 32px;
+        letter-spacing: 1px;
+      }
+      .side-links {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+      }
+      .side-links li {
+        width: 100%;
+      }
+      .side-links a {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        color: #fff;
+        text-decoration: none;
+        font-size: 1.08rem;
+        font-weight: 500;
+        padding: 14px 32px;
+        width: 100%;
+        transition: background 0.3s, color 0.3s, transform 0.3s;
+        border-left: 4px solid transparent;
+      }
+      .side-links a:hover, .side-links a.active {
+        background: #0059b3;
+        color: #ffcc00;
+        border-left: 4px solid #ffcc00;
+        transform: translateX(4px) scale(1.03);
+      }
+      .side-icon {
+        font-size: 1.2rem;
+        width: 24px;
+        text-align: center;
+      }
+      .side-menu-toggle {
+        position: fixed;
+        top: 18px;
+        left: 18px;
+        background: #004080;
+        color: #fff;
+        border: none;
+        border-radius: 50%;
+        width: 44px;
+        height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1200;
+        cursor: pointer;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+        transition: background 0.3s, transform 0.3s;
+        font-size: 1.5rem;
+      }
+      .side-menu-toggle:hover, .side-menu-toggle:focus {
+        background: #0059b3;
+        color: #ffcc00;
+        transform: scale(1.08);
+        outline: none;
       }
     </style>
-  </head>
-  <body style="background: linear-gradient(135deg, #e3eefe 60%, #f9f9f9 100%);">
-    <button class="side-menu-toggle" onclick="document.querySelector('.side-menu').classList.toggle('open');">&#9776;</button>
-    <nav class="side-menu side-menu-fade">
-      <div class="side-title">InternConnect</div>
-      <ul class="side-links">
-        <li><a href="index.html"><span class="side-icon">🏠</span>Home</a></li>
-        <li><a href="Internships.html"><span class="side-icon">💼</span>Internships</a></li>
-        <li><a href="College.html"><span class="side-icon">🎓</span>Colleges</a></li>
-        <li><a href="About.html" class="active"><span class="side-icon">ℹ️</span>About</a></li>
-        <li><a href="FAQs.html"><span class="side-icon">❓</span>FAQs</a></li>
-      </ul>
-    </nav>
-    <div style="margin-left:240px; min-height:100vh; transition: margin 0.4s cubic-bezier(.77,0,.18,1);">
-    <header style="background: linear-gradient(90deg, #004080 70%, #0066cc 100%); color: white; padding: 38px 32px 28px 32px; border-radius: 0 0 24px 24px; box-shadow: 0 4px 24px rgba(0,0,0,0.10); margin: 0 32px 32px 0; position: relative;">
-      <h1 style="margin-bottom: 8px; font-size:2.2rem; letter-spacing:1px; font-weight:700; text-shadow:0 2px 8px rgba(0,0,0,0.08);">About InternConnect</h1>
-      <p class="subtitle" style="font-size:1.25rem; color:#e3eefe; margin-top:10px;">Our mission, vision, and values</p>
-      <div style="position:absolute; right:32px; top:32px; opacity:0.12; font-size:6rem; pointer-events:none;">ℹ️</div>
-    </header>
-    <div class="container" style="max-width:1200px; margin:0 auto;">
-      <main class="main-container" style="max-width: 700px;">
-        <article class="featured-article">
-          <h2>Who We Are</h2>
-          <p>InternConnect is dedicated to bridging the gap between students, educational institutions, and corporations. Our platform is designed to empower students with real-world experience, help colleges connect their students to top recruiters, and enable companies to discover fresh talent efficiently.</p>
-          <h2>Our Vision</h2>
-          <p>To be the leading platform for internship opportunities, fostering growth, innovation, and professional development for all stakeholders.</p>
-          <h2>Our Values</h2>
-          <ul style="text-align:left; color:#333; line-height:1.7;">
-            <li><b>Integrity:</b> We operate with transparency and honesty.</li>
-            <li><b>Opportunity:</b> We believe in equal access to career-building experiences.</li>
-            <li><b>Growth:</b> We support continuous learning and development.</li>
-            <li><b>Collaboration:</b> We connect students, colleges, and companies for mutual success.</li>
-          </ul>
-        </article>
-      </main>
+</head>
+<body>
+  <header>
+    <div class="navbar">
+      <div class="nav-left">
+        <div class="mnc-logo">
+          <img src="logo.png" alt="InternConnect Logo" />
+        </div>
+        <div class="nav-title">InternConnect</div>
+      </div>
+      <div class="nav-right">
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html" class="active">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
     </div>
-    <footer>
-      <div style="margin-top: 8px;">&copy; 2025 InternConnect. All rights reserved.</div>
-    </footer>
-    <script>
+    <h1>About Us</h1>
+    <p class="subtitle">Connecting Interns with Opportunities</p>
+  </header>
+  <div class="container">
+    <div class="main-content-wrapper">
+      <section id="about">
+        <h2>About InternConnect</h2>
+        <p>
+          InternConnect is a platform dedicated to bridging the gap between interns and companies
+          looking for fresh talent. Our mission is to simplify the internship search process and
+          provide valuable opportunities for students and recent graduates.
+        </p>
+        <p>
+          We understand the challenges faced by both interns and employers. That's why we've
+          created a user-friendly platform that streamlines the application process, making it
+          easier for interns to find suitable positions and for companies to discover and hire
+          top talent.
+        </p>
+        <div class="button-container">
+          <div class="button">
+            <a href="signup.html">Get Started</a>
+          </div>
+          <div class="button">
+            <a href="login.html">Login</a>
+          </div>
+        </div>
+      </section>
+      <section id="team">
+        <h2>Meet Our Team</h2>
+        <div class="card-container">
+          <div class="card">
+            <div class="front-content">
+              <div class="img">
+                <img src="team1.jpg" alt="Team Member" />
+              </div>
+              <div class="title">
+                <strong>John Doe</strong>
+                <span>CEO & Founder</span>
+              </div>
+            </div>
+            <div class="back-content">
+              <p>
+                John is the visionary behind InternConnect. With a background in HR and a passion
+                for helping students, he founded InternConnect to make a difference in the
+                internship landscape.
+              </p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="front-content">
+              <div class="img">
+                <img src="team2.jpg" alt="Team Member" />
+              </div>
+              <div class="title">
+                <strong>Jane Smith</strong>
+                <span>COO & Co-Founder</span>
+              </div>
+            </div>
+            <div class="back-content">
+              <p>
+                Jane is the operational genius of InternConnect. Her expertise in managing
+                processes and her dedication to student success drive the company forward.
+              </p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="front-content">
+              <div class="img">
+                <img src="team3.jpg" alt="Team Member" />
+              </div>
+              <div class="title">
+                <strong>Emily Johnson</strong>
+                <span>CTO</span>
+              </div>
+            </div>
+            <div class="back-content">
+              <p>
+                Emily is the tech wizard at InternConnect. She leads the development of our
+                platform, ensuring a seamless and innovative experience for all users.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+  <footer>
+    <p>&copy; 2023 InternConnect. All rights reserved.</p>
+  </footer>
+  <script>
       // Side menu auto-close on link click (for mobile)
       document.querySelectorAll('.side-links a').forEach(link => {
         link.addEventListener('click', () => {
           document.querySelector('.side-menu').classList.remove('open');
+          document.querySelector('.mobile-overlay').style.display = 'none';
         });
       });
       // Close side menu if clicking outside (mobile UX)
-      document.addEventListener('click', function(e) {
-        const menu = document.querySelector('.side-menu');
-        const toggle = document.querySelector('.side-menu-toggle');
-        if (menu.classList.contains('open') && !menu.contains(e.target) && !toggle.contains(e.target)) {
-          menu.classList.remove('open');
-        }
+      document.querySelector('.mobile-overlay').addEventListener('click', function() {
+        document.querySelector('.side-menu').classList.remove('open');
+        this.style.display = 'none';
       });
+      // Ensure main-content-wrapper margin is 0 on mobile
+      function adjustMainContentMargin() {
+        var wrapper = document.querySelector('.main-content-wrapper');
+        if(window.innerWidth <= 900) {
+          wrapper.style.marginLeft = '0';
+        } else {
+          wrapper.style.marginLeft = '240px';
+        }
+      }
+      window.addEventListener('resize', adjustMainContentMargin);
+      window.addEventListener('DOMContentLoaded', adjustMainContentMargin);
     </script>
-  </div>
 </body>
 </html>

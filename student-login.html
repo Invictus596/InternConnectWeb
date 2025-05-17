@@ -131,29 +131,42 @@
       margin-bottom: 24px;
       font-family: 'Poppins', Arial, sans-serif !important;
     }
+    @media (max-width: 900px) {
+      .side-menu {
+        left: 0;
+        transform: translateX(-100%);
+        width: 80vw;
+        max-width: 320px;
+        min-width: 170px;
+        box-shadow: 2px 0 12px rgba(0,0,0,0.18);
+        z-index: 2000;
+        transition: transform 0.4s cubic-bezier(.77,0,.18,1);
+      }
+      .side-menu.open {
+        transform: translateX(0);
+      }
+      .main-content-wrapper {
+        margin-left: 0 !important;
+      }
+      .mobile-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0,0,0,0.18);
+        z-index: 1500;
+      }
+      .side-menu.open ~ .mobile-overlay {
+        display: block;
+      }
+    }
     @media (max-width: 600px) {
-      .login-container {
-        max-width: 95vw;
-        padding: 24px 8vw 20px 8vw;
-        margin-top: 30px;
-      }
-      header {
-        padding: 22px 8px 16px 8px;
-      }
-      .container {
-        max-width: 100vw;
-        padding: 8px 2vw 10px 2vw;
-      }
-      .btn {
-        font-size: 0.98rem;
-        padding: 10px 0;
-        gap: 6px;
-      }
-      h2 {
-        font-size: 1.1rem;
-      }
-      label, input, select {
-        font-size: 0.98rem;
+      .side-menu {
+        width: 90vw;
+        min-width: 0;
+        max-width: 320px;
       }
     }
     footer {
@@ -304,52 +317,46 @@
     }
     @media (max-width: 900px) {
       .side-menu {
-        width: 170px;
-        padding-top: 18px;
+        left: 0;
+        transform: translateX(-100%);
+        width: 80vw;
+        max-width: 320px;
+        min-width: 170px;
+        box-shadow: 2px 0 12px rgba(0,0,0,0.18);
+        z-index: 2000;
+        transition: transform 0.4s cubic-bezier(.77,0,.18,1);
       }
-      .side-menu .side-title {
-        font-size: 1.1rem;
-        margin-left: 18px;
-        margin-bottom: 18px;
+      .side-menu.open {
+        transform: translateX(0);
       }
-      .side-links a {
-        font-size: 0.98rem;
-        padding: 10px 18px;
+      .main-content-wrapper {
+        margin-left: 0 !important;
+      }
+      .mobile-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0,0,0,0.18);
+        z-index: 1500;
+      }
+      .side-menu.open ~ .mobile-overlay {
+        display: block;
       }
     }
     @media (max-width: 600px) {
       .side-menu {
-        width: 100vw;
-        padding-top: 12px;
-        box-shadow: none;
+        width: 90vw;
+        min-width: 0;
+        max-width: 320px;
       }
-      .side-menu .side-title {
-        margin-left: 12px;
-        margin-bottom: 12px;
-      }
-      .side-links a {
-        font-size: 1rem;
-        padding: 10px 12px;
-      }
-      .side-menu-toggle {
-        top: 10px;
-        left: 10px;
-        width: 38px;
-        height: 38px;
-        font-size: 1.2rem;
-      }
-    }
-    .side-menu-fade {
-      animation: fadeInMenu 0.5s cubic-bezier(.77,0,.18,1);
-    }
-    @keyframes fadeInMenu {
-      from { opacity: 0; transform: translateX(-60px); }
-      to { opacity: 1; transform: translateX(0); }
     }
   </style>
 </head>
-<body>
-  <button class="side-menu-toggle" onclick="document.querySelector('.side-menu').classList.toggle('open');">
+<body style="background: linear-gradient(135deg, #e3eefe 60%, #f9f9f9 100%);">
+  <button class="side-menu-toggle" onclick="document.querySelector('.side-menu').classList.toggle('open'); document.querySelector('.mobile-overlay').style.display = document.querySelector('.side-menu').classList.contains('open') ? 'block' : 'none';">
     &#9776;
   </button>
   <nav class="side-menu side-menu-fade">
@@ -362,89 +369,101 @@
       <li><a href="FAQs.html"><span class="side-icon">❓</span>FAQs</a></li>
     </ul>
   </nav>
-  <div class="container" style="margin-left:240px; transition: margin 0.4s cubic-bezier(.77,0,.18,1);">
-    <nav class="navbar">
-      <div class="nav-left">
-        <span class="nav-title">InternConnect</span>
-      </div>
-      <ul class="nav-links">
-        <li><a href="index.html" title="Home"><span class="nav-icon">🏠</span></a></li>
-        <li><a href="Internships.html" title="Internships"><span class="nav-icon">💼</span></a></li>
-        <li><a href="College.html" title="Colleges"><span class="nav-icon">🎓</span></a></li>
-        <li><a href="About.html" title="About"><span class="nav-icon">ℹ️</span></a></li>
-        <li><a href="FAQs.html" title="FAQs"><span class="nav-icon">❓</span></a></li>
-      </ul>
-    </nav>
-    <header style="background: linear-gradient(90deg, #004080 70%, #0066cc 100%); color: white; padding: 38px 32px 28px 32px; border-radius: 0 0 24px 24px; box-shadow: 0 4px 24px rgba(0,0,0,0.10); margin: 0 32px 32px 0; position: relative; text-align:center;">
-      <h1 style="margin-bottom: 8px; font-size:2.2rem; letter-spacing:1px; font-weight:700; text-shadow:0 2px 8px rgba(0,0,0,0.08); font-family:'Poppins',Arial,sans-serif;">Student Login</h1>
-      <p class="subtitle" style="font-size:1.25rem; color:#e3eefe; margin-top:10px; font-family:'Poppins',Arial,sans-serif;">Access your dashboard and apply for internships</p>
-      <div style="position:absolute; right:32px; top:32px; opacity:0.12; font-size:6rem; pointer-events:none;">🎓</div>
-    </header>
+  <div class="mobile-overlay" onclick="document.querySelector('.side-menu').classList.remove('open'); this.style.display='none';"></div>
+  <div class="main-content-wrapper" style="margin-left:240px; min-height:100vh; transition: margin 0.4s cubic-bezier(.77,0,.18,1);">
     <div class="container">
-      <div class="login-container">
-        <h2>Login to Your Account</h2>
-        <form>
-          <div class="form-group">
-            <label for="email">Email ID:</label>
-            <svg class="input-icon" viewBox="0 0 20 20"><path d="M2 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V4zm2 0v.01L10 9l6-4.99V4H4zm0 2.236V16h12V6.236l-6 4.99-6-4.99z"/></svg>
-            <input type="email" id="email" placeholder="Enter your student email" required>
-          </div>
-          <div class="form-group">
-            <label for="password">Password:</label>
-            <svg class="input-icon" viewBox="0 0 20 20"><path d="M10 2a4 4 0 0 0-4 4v3H5a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-5a2 2 0 0 0-2-2h-1V6a4 4 0 0 0-4-4zm-2 7V6a2 2 0 1 1 4 0v3H8z"/></svg>
-            <input type="password" id="password" placeholder="Enter your password" required>
-          </div>
-          <div class="form-group">
-            <label for="student-id">Student ID:</label>
-            <svg class="input-icon" viewBox="0 0 20 20"><path d="M10 10a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm0 2c-3.31 0-6 1.34-6 3v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1v-1c0-1.66-2.69-3-6-3z"/></svg>
-            <input type="text" id="student-id" placeholder="Enter your student ID" required>
-          </div>
-          <div class="form-group">
-            <label for="department">Department:</label>
-            <svg class="input-icon" style="top:36px;" viewBox="0 0 20 20"><path d="M10 2L2 7l8 5 8-5-8-5zm0 7.75L4.21 7 10 3.25 15.79 7 10 9.75zm-6 2.25v2a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-2l-6 3.75L4 12z"/></svg>
-            <select id="department" required style="padding-left:38px;">
-              <option value="">Select your department</option>
-              <option value="computer-science">Computer Science</option>
-              <option value="physics">Physics</option>
-              <option value="mathematics">Mathematics</option>
-              <option value="chemistry">Chemistry</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="mobile">Mobile Number:</label>
-            <svg class="input-icon" viewBox="0 0 20 20"><path d="M6.62 10.79a15.053 15.053 0 0 0 2.59 2.59l2.2-2.2a1 1 0 0 1 1.11-.21c1.2.48 2.53.73 3.88.73a1 1 0 0 1 1 1v3.5a1 1 0 0 1-1 1C5.92 18 2 14.08 2 9.5a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.35.25 2.68.73 3.88a1 1 0 0 1-.21 1.11l-2.2 2.2z"/></svg>
-            <input type="tel" id="mobile" placeholder="Enter your registered mobile number" required>
-          </div>
-          <div class="terms">
-            <input type="checkbox" id="terms" required>
-            <label for="terms">I agree to the terms and conditions</label>
-          </div>
-          <button type="submit" class="btn">
-            <svg viewBox="0 0 20 20"><path d="M2.94 2.94a1.5 1.5 0 0 1 2.12 0l12 12a1.5 1.5 0 0 1-2.12 2.12l-12-12a1.5 1.5 0 0 1 0-2.12z"/></svg>
-            Login
-          </button>
-        </form>
+      <nav class="navbar">
+        <div class="nav-left">
+          <span class="nav-title">InternConnect</span>
+        </div>
+        <ul class="nav-links">
+          <li><a href="index.html" title="Home"><span class="nav-icon">🏠</span></a></li>
+          <li><a href="Internships.html" title="Internships"><span class="nav-icon">💼</span></a></li>
+          <li><a href="College.html" title="Colleges"><span class="nav-icon">🎓</span></a></li>
+          <li><a href="About.html" title="About"><span class="nav-icon">ℹ️</span></a></li>
+          <li><a href="FAQs.html" title="FAQs"><span class="nav-icon">❓</span></a></li>
+        </ul>
+      </nav>
+      <header style="background: linear-gradient(90deg, #004080 70%, #0066cc 100%); color: white; padding: 38px 32px 28px 32px; border-radius: 0 0 24px 24px; box-shadow: 0 4px 24px rgba(0,0,0,0.10); margin: 0 32px 32px 0; position: relative; text-align:center;">
+        <h1 style="margin-bottom: 8px; font-size:2.2rem; letter-spacing:1px; font-weight:700; text-shadow:0 2px 8px rgba(0,0,0,0.08); font-family:'Poppins',Arial,sans-serif;">Student Login</h1>
+        <p class="subtitle" style="font-size:1.25rem; color:#e3eefe; margin-top:10px; font-family:'Poppins',Arial,sans-serif;">Access your dashboard and apply for internships</p>
+        <div style="position:absolute; right:32px; top:32px; opacity:0.12; font-size:6rem; pointer-events:none;">🎓</div>
+      </header>
+      <div class="container">
+        <div class="login-container">
+          <h2>Login to Your Account</h2>
+          <form>
+            <div class="form-group">
+              <label for="email">Email ID:</label>
+              <svg class="input-icon" viewBox="0 0 20 20"><path d="M2 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V4zm2 0v.01L10 9l6-4.99V4H4zm0 2.236V16h12V6.236l-6 4.99-6-4.99z"/></svg>
+              <input type="email" id="email" placeholder="Enter your student email" required>
+            </div>
+            <div class="form-group">
+              <label for="password">Password:</label>
+              <svg class="input-icon" viewBox="0 0 20 20"><path d="M10 2a4 4 0 0 0-4 4v3H5a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-5a2 2 0 0 0-2-2h-1V6a4 4 0 0 0-4-4zm-2 7V6a2 2 0 1 1 4 0v3H8z"/></svg>
+              <input type="password" id="password" placeholder="Enter your password" required>
+            </div>
+            <div class="form-group">
+              <label for="student-id">Student ID:</label>
+              <svg class="input-icon" viewBox="0 0 20 20"><path d="M10 10a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm0 2c-3.31 0-6 1.34-6 3v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1v-1c0-1.66-2.69-3-6-3z"/></svg>
+              <input type="text" id="student-id" placeholder="Enter your student ID" required>
+            </div>
+            <div class="form-group">
+              <label for="department">Department:</label>
+              <svg class="input-icon" style="top:36px;" viewBox="0 0 20 20"><path d="M10 2L2 7l8 5 8-5-8-5zm0 7.75L4.21 7 10 3.25 15.79 7 10 9.75zm-6 2.25v2a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-2l-6 3.75L4 12z"/></svg>
+              <select id="department" required style="padding-left:38px;">
+                <option value="">Select your department</option>
+                <option value="computer-science">Computer Science</option>
+                <option value="physics">Physics</option>
+                <option value="mathematics">Mathematics</option>
+                <option value="chemistry">Chemistry</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="mobile">Mobile Number:</label>
+              <svg class="input-icon" viewBox="0 0 20 20"><path d="M6.62 10.79a15.053 15.053 0 0 0 2.59 2.59l2.2-2.2a1 1 0 0 1 1.11-.21c1.2.48 2.53.73 3.88.73a1 1 0 0 1 1 1v3.5a1 1 0 0 1-1 1C5.92 18 2 14.08 2 9.5a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.35.25 2.68.73 3.88a1 1 0 0 1-.21 1.11l-2.2 2.2z"/></svg>
+              <input type="tel" id="mobile" placeholder="Enter your registered mobile number" required>
+            </div>
+            <div class="terms">
+              <input type="checkbox" id="terms" required>
+              <label for="terms">I agree to the terms and conditions</label>
+            </div>
+            <button type="submit" class="btn">
+              <svg viewBox="0 0 20 20"><path d="M2.94 2.94a1.5 1.5 0 0 1 2.12 0l12 12a1.5 1.5 0 0 1-2.12 2.12l-12-12a1.5 1.5 0 0 1 0-2.12z"/></svg>
+              Login
+            </button>
+          </form>
+        </div>
       </div>
-    </div>
-    <footer>
-      &copy; 2025 InternConnect. All rights reserved.
-    </footer>
-    <script>
-      // Side menu auto-close on link click (for mobile)
-      document.querySelectorAll('.side-links a').forEach(link => {
-        link.addEventListener('click', () => {
-          document.querySelector('.side-menu').classList.remove('open');
+      <footer>
+        &copy; 2025 InternConnect. All rights reserved.
+      </footer>
+      <script>
+        // Side menu auto-close on link click (for mobile)
+        document.querySelectorAll('.side-links a').forEach(link => {
+          link.addEventListener('click', () => {
+            document.querySelector('.side-menu').classList.remove('open');
+            document.querySelector('.mobile-overlay').style.display = 'none';
+          });
         });
-      });
-      // Close side menu if clicking outside (mobile UX)
-      document.addEventListener('click', function(e) {
-        const menu = document.querySelector('.side-menu');
-        const toggle = document.querySelector('.side-menu-toggle');
-        if (menu.classList.contains('open') && !menu.contains(e.target) && !toggle.contains(e.target)) {
-          menu.classList.remove('open');
+        // Close side menu if clicking outside (mobile UX)
+        document.querySelector('.mobile-overlay').addEventListener('click', function() {
+          document.querySelector('.side-menu').classList.remove('open');
+          this.style.display = 'none';
+        });
+        // Ensure main-content-wrapper margin is 0 on mobile
+        function adjustMainContentMargin() {
+          var wrapper = document.querySelector('.main-content-wrapper');
+          if(window.innerWidth <= 900) {
+            wrapper.style.marginLeft = '0';
+          } else {
+            wrapper.style.marginLeft = '240px';
+          }
         }
-      });
-    </script>
+        window.addEventListener('resize', adjustMainContentMargin);
+        window.addEventListener('DOMContentLoaded', adjustMainContentMargin);
+      </script>
+    </div>
   </div>
 </body>
 </html>
